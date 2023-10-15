@@ -1,23 +1,41 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import Listing from './components/Listing';
 
 function App() {
+  let data = [
+    {
+      /* AA RITE IMAGE NE EXCESS KARI SAKAY JO APRE ANE IMPORT NAI KARVU HOI TO REQIRE LAKHI AMA PATH API LAKHI SAKAY */
+      img : require('../src/assets/images/img1.jpeg'),
+      title : "Title-1",
+      description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quisquam corporis, labore aspernatur ab soluta."
+    },
+    {
+      img : require('../src/assets/images/img2.jpeg'),
+      title : "Title-2",
+      description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quisquam corporis, labore aspernatur ab soluta."
+    },
+    {
+      img : require('../src/assets/images/img3.jpeg'),
+      title : "Title-3",
+      description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quisquam corporis, labore aspernatur ab soluta."
+    },
+    {
+      img : require('../src/assets/images/img4.webp'),
+      title : "Title-4",
+      description : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quisquam corporis, labore aspernatur ab soluta."
+    }
+  ]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{display:"flex", justifyContent:"space-evenly"}}>
+        {
+          data.map((x,i)=>{
+            return  <Listing obj = {x} key = {i} />
+          })
+        }
+      </div>
+    
     </div>
   );
 }
